@@ -1,24 +1,26 @@
 package no.hvl.dat102;
 
+import java.util.Objects;
+
 public class Film {
 	
 	private int filmnr;
-	private String filmskapar;
+	private String produsent;
 	private String tittel;
-	private int lansert;
+	private int aar;
 	private Sjanger sjanger;
 	private String filmselskap;
 	
 	public Film() {}
 	
-	public Film(int filmnr, String filmskapar, String tittel, int lansert, Sjanger sjanger, String filmselskap) {
+	public Film(int filmnr, String produsent, String tittel, int aar, Sjanger sjanger, String filmselskap) {
 		
 		this.filmnr = filmnr;
-		this.filmskapar = filmskapar;
+		this.produsent = produsent;
 		this.tittel = tittel;
-		this.lansert = lansert;
-		this.filmselskap = filmselskap;
+		this.aar = aar;
 		this.sjanger = sjanger;
+		this.filmselskap = filmselskap;
 		
 	}
 	
@@ -28,9 +30,9 @@ public class Film {
 		
 	}
 	
-	public String getFilmskapar() {
+	public String getProdusent() {
 		
-		return filmskapar;
+		return produsent;
 		
 	}
 	
@@ -40,9 +42,9 @@ public class Film {
 		
 	}
 	
-	public int getLansert() {
+	public int getAar() {
 		
-		return lansert;
+		return aar;
 		
 	}
 	
@@ -64,9 +66,9 @@ public class Film {
 		
 	}
 	
-	public void setFilmskapar(String newFilmskapar) {
+	public void setProdusent(String newProdusent) {
 		
-		filmskapar = newFilmskapar;
+		produsent = newProdusent;
 		
 	}
 	
@@ -76,9 +78,9 @@ public class Film {
 		
 	}
 	
-	public void setLansert(int newLansert) {
+	public void setAar(int newAar) {
 		
-		lansert = newLansert;
+		aar = newAar;
 		
 	}
 	
@@ -91,6 +93,26 @@ public class Film {
 	public void setFilmselskap(String newFilmselskap) {
 		
 		filmselskap = newFilmselskap;
+		
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(obj == null) return false;
+		if(obj.getClass() != this.getClass()) return false;
+		if(!(obj instanceof Film)) return false;
+		
+		Film film = (Film) obj;
+		
+		return filmnr == film.getFilmnr();
+		
+	}
+	
+	@Override
+	public int hashCode() {
+		
+		return Objects.hash(filmnr);
 		
 	}
 	
