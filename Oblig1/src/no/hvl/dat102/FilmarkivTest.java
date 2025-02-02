@@ -12,6 +12,7 @@ class FilmarkivTest {
 	Film film3;
 	
 	Filmarkiv filmer1;
+	Filmarkiv2 filmer2;
 	
 	@BeforeEach
 	void setUp() {
@@ -25,12 +26,15 @@ class FilmarkivTest {
 		filmer1.leggTilFilm(film2);
 		filmer1.leggTilFilm(film3);
 		
-		
+		filmer2 = new Filmarkiv2();
+		filmer2.leggTilFilm(film1);
+		filmer2.leggTilFilm(film2);
+		filmer2.leggTilFilm(film3);
 		
 	}
 	
 	@Test
-	void testFilmGet() {
+	void testFilm1Get() {
 		
 		assertEquals(film1.getFilmnr(), 1);
 		assertEquals(film2.getFilmnr(), 2);
@@ -119,7 +123,7 @@ class FilmarkivTest {
 	}
 	
 	@Test
-	void testLeggTilFinnOgSlett() {
+	void testLeggTilFinnOgSlett1() {
 		
 		assertEquals(filmer1.finnFilm(1), film1);
 		assertEquals(filmer1.finnFilm(2), film2);
@@ -134,7 +138,22 @@ class FilmarkivTest {
 	}
 	
 	@Test
-	void testSoek() {
+	void testLeggTilFinnOgSlett2() {
+		
+		assertEquals(filmer2.finnFilm(1), film1);
+		assertEquals(filmer2.finnFilm(2), film2);
+		assertEquals(filmer2.finnFilm(3), film3);
+		
+		assertTrue(filmer2.slettFilm(1));
+		
+		assertTrue(filmer2.finnFilm(1) == null);
+		assertTrue(filmer2.finnFilm(2) == film2);
+		assertTrue(filmer2.finnFilm(3) == film3);
+		
+	}
+	
+	@Test
+	void testSoek1() {
 		
 		Film[] checkFilmT = filmer1.soekTittel("er");
 		
@@ -151,10 +170,35 @@ class FilmarkivTest {
 	}
 	
 	@Test
-	void testAntall() {
+	void testSoek2() {
 		
+		Film[] checkFilmT = filmer2.soekTittel("er");
+		
+		assertEquals(checkFilmT[0], film1);
+		assertEquals(checkFilmT[1], film2);
+		assertTrue(checkFilmT.length == 2);
+		
+		Film[] checkFilmP = filmer2.soekProdusent("re");
+		
+		assertEquals(checkFilmP[0], film2);
+		assertEquals(checkFilmP[1], film3);
+		assertTrue(checkFilmP.length == 2);
+		
+	}
+	
+	@Test
+	void testAntall1() {
+		System.out.println(filmer1.antall());
 		assertTrue(filmer1.antall() == 3);
 		assertTrue(filmer1.antall(Sjanger.finnSjanger("drama")) == 2);
+		
+	}
+	
+	@Test
+	void testAntall2() {
+		
+		assertTrue(filmer2.antall() == 3);
+		assertTrue(filmer2.antall(Sjanger.finnSjanger("drama")) == 2);
 		
 	}
 
