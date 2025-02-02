@@ -61,8 +61,6 @@ public class Meny {
 			
 		}
 		
-		s.close();
-		
 	}
 	
 }

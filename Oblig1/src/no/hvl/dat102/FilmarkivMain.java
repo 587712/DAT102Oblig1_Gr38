@@ -26,6 +26,7 @@ public class FilmarkivMain {
 		
 		Meny meny = new Meny(filma);
 		meny.start();
+		s.close();
 		
 	}
 
