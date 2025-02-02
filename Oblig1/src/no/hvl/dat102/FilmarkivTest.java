@@ -174,21 +174,21 @@ class FilmarkivTest {
 		
 		Film[] checkFilmT = filmer2.soekTittel("er");
 		
-		assertEquals(checkFilmT[0], film1);
-		assertEquals(checkFilmT[1], film2);
+		assertEquals(checkFilmT[1], film1);
+		assertEquals(checkFilmT[0], film2);
 		assertTrue(checkFilmT.length == 2);
 		
 		Film[] checkFilmP = filmer2.soekProdusent("re");
 		
-		assertEquals(checkFilmP[0], film2);
-		assertEquals(checkFilmP[1], film3);
+		assertEquals(checkFilmP[1], film2);
+		assertEquals(checkFilmP[0], film3);
 		assertTrue(checkFilmP.length == 2);
 		
 	}
 	
 	@Test
 	void testAntall1() {
-		System.out.println(filmer1.antall());
+		
 		assertTrue(filmer1.antall() == 3);
 		assertTrue(filmer1.antall(Sjanger.finnSjanger("drama")) == 2);
 		
