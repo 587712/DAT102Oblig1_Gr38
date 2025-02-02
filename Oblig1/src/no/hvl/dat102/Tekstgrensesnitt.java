@@ -36,6 +36,8 @@ public class Tekstgrensesnitt {
         	.append(" Filmselskap: " + film.getFilmselskap())
         	.append(" Sjanger: " + film.getSjanger() + "]");
 		
+		System.out.println(s);
+		
 	}
 	
 	public void skrivUtFilmDelstrengTittel(FilmarkivADT arkiv, String delstreng) {
@@ -44,9 +46,11 @@ public class Tekstgrensesnitt {
 		
 		for(Film f : temp) {
 			
-			skrivUtFilm(f);
-			System.out.println();
-			
+			if(f.getTittel().contains(delstreng)) {
+				
+				skrivUtFilm(f);
+				
+			}
 			
 		}
 		
@@ -58,8 +62,11 @@ public class Tekstgrensesnitt {
 		
 		for(Film f : temp) {
 			
-			skrivUtFilm(f);
-			System.out.println();
+			if(f.getProdusent().contains(delstreng)) {
+				
+				skrivUtFilm(f);
+				
+			}
 			
 		}
 		

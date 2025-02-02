@@ -109,7 +109,7 @@ public class Filmarkiv implements FilmarkivADT {
 		
 		for(int i = 0; i < filmer.length; i++) {
 			
-			if(filmer[i].getProdusent().contains(delstreng)) {
+			if(filmer[i] != null && filmer[i].getProdusent().contains(delstreng)) {
 				
 				soek[temp] = filmer[i];
 				temp++;
