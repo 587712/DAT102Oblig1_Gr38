@@ -20,7 +20,7 @@ class Filmarkiv2Test {
 		film2 = new Film(2, "Sir Slice'O Bread", "The Evil Baker", 1970, Sjanger.finnSjanger("action"), "Bored Pictures");
 		film3 = new Film(3, "Prett Ensious", "Artsy Partsy", 2015, Sjanger.finnSjanger("drama"), "Superior Films");
 		
-		filmer1 = new Filmarkiv2(3);
+		filmer1 = new Filmarkiv2();
 		filmer1.leggTilFilm(film1);
 		filmer1.leggTilFilm(film2);
 		filmer1.leggTilFilm(film3);
