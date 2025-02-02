@@ -8,16 +8,18 @@ public class Tekstgrensesnitt {
 		
 		Scanner s = new Scanner(System.in);
 		
+		System.out.println("filmnr, produsent, tittel, år, sjanger, filmselskap");
+		
 		int filmNr = s.nextInt();
+		s.nextLine();
 		String produsent = s.nextLine();
 		String tittel = s.nextLine();
 		int aar = s.nextInt();
+		s.nextLine();
 		String sjanger = s.nextLine();
 		String filmselskap = s.nextLine();
 		
 		Film nyFilm = new Film(filmNr, produsent, tittel, aar, Sjanger.finnSjanger(sjanger), filmselskap);
-		
-		s.close();
 		
 		return nyFilm;
 		

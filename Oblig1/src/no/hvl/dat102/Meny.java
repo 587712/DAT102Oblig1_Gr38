@@ -30,13 +30,16 @@ public class Meny {
 		
 		while(!done) {
 			
-			action = s.nextLine();
+			System.out.println("les: input ny film\nfilm: skriv ut film frå filmnnr\ntittel: skriv ut film basert på tittel\nprodusent\nskriv ut film basert på produsent\nstatistikk: vis statistikk\ndone: avslutt programmet");
+			
+			action = s.nextLine().toLowerCase();
 			
 			switch (action) {
 				case "les":
+					filmarkiv.leggTilFilm(tekstgr.lesFilm());
 					break;
 				case "film":
-					//tekstgr.skrivUtFilm(filmarkiv.getFilmer()[s.nextInt()]);
+					tekstgr.skrivUtFilm(filmarkiv.finnFilm(s.nextInt()));
 					break;
 				case "tittel":
 					tekstgr.skrivUtFilmDelstrengTittel(filmarkiv, s.nextLine());
